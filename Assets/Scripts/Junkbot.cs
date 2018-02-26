@@ -15,7 +15,7 @@ public class Junkbot : MonoBehaviour
     //input variables/axes
     //TODO Manage input axes in code as variables of the player number so they aren't hard-coded into the Junkbot Script
     [SerializeField]
-    private string PlayerNumber;
+    public string PlayerNumber;
 
     private string HorizontalInputAxis
     {
