@@ -11,8 +11,23 @@ public class Junkbot : MonoBehaviour
     new Rigidbody rigidbody;
     float XInput;
     float YInput;
-	// Use this for initialization
-	void Start () 
+
+    //input variables/axes
+    //TODO Manage input axes in code as variables of the player number so they aren't hard-coded into the Junkbot Script
+    [SerializeField]
+    private string PlayerNumber;
+
+    private string HorizontalInputAxis
+    {
+        get { return "Horizontal" + PlayerNumber; }
+    }
+    private string VerticalInputAxis
+    {
+        get { return "Vertical" + PlayerNumber; }
+    }
+
+    // Use this for initialization
+    void Start () 
 	{
         rigidbody = GetComponent<Rigidbody>();
 	}
@@ -30,8 +45,8 @@ public class Junkbot : MonoBehaviour
     }
     private void GetInput()
     {
-        XInput = Input.GetAxis("Horizontal");
-        YInput = Input.GetAxis("Vertical");
+        XInput = Input.GetAxis(HorizontalInputAxis);
+        YInput = Input.GetAxis(VerticalInputAxis);
     }
     private void Move()
     {
