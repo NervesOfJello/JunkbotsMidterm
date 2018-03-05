@@ -31,8 +31,7 @@ public class Hammer : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        SetHammer();
-        
+        SetHammer();       
     }
 
     void GetInput()
@@ -47,7 +46,7 @@ public class Hammer : MonoBehaviour {
         //lerp so that it doesn't just slam down
         
         transform.localEulerAngles = Vector3.Lerp(transform.localEulerAngles, hammerCurrentRotation.eulerAngles, hammerLerpSpeed * Time.fixedDeltaTime);
-        Debug.Log("LEA: " + transform.localEulerAngles);
+        //Debug.Log("LEA: " + transform.localEulerAngles);
         //transform.localEulerAngles = hammerCurrentRotation.eulerAngles;
     }
 }
