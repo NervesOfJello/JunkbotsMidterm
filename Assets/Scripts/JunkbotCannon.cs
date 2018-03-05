@@ -51,6 +51,7 @@ public class JunkbotCannon : MonoBehaviour {
         StartCoroutine(CannonCooldownCoroutine());
 
         //create the projectile and give it a velocity
+        //TODO Fix projectile spawn positioning bug
         Rigidbody projectileInstance = Instantiate(projectile, fireTransform.position, fireTransform.rotation);
 
         projectileInstance.velocity = launchForce * fireTransform.forward;
