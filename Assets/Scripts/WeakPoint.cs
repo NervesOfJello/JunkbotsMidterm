@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class WeakPoint : MonoBehaviour {
 
+    //will need reference to the Junkbot script so it can check whether it's Alive or not
+    //All I want this to do is when the weakpoint collides with an object tagged "Weapon," it sets Junkbot.isAlive to "false"
+    //Actually handle what it means to be dead in the junkbot script itself
+    //This way, this script can be attached to any object
+
+    private Junkbot parentJunkbot;
 	// Use this for initialization
 	void Start ()
     {
-		
+        parentJunkbot = GetComponentInParent<Junkbot>();
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    private void OnTriggerEnter(Collider other)
     {
-		
-	}
+        if (other.gameObject.tag == "Weapon")
+        {
+            parentJunkbot.isAlive = false;
+        }
+    }
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "Weapon")
+    //    {
+    //        parentJunkbot.isAlive = false;
+    //    }
+    //}
 }

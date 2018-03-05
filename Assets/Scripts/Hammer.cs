@@ -41,10 +41,18 @@ public class Hammer : MonoBehaviour {
 
     void SetHammer()
     {
+        //if the junkbot dies, let the hammer fall down and stay there
+        if (parentJunkbot.isAlive)
+        {
+            //set target rotation relative to the trigger input axis
+            hammerCurrentRotation.eulerAngles = new Vector3(0, 0, maxRotationAngle * hammerInput);
+        }
+        else
+        {
+            hammerCurrentRotation.eulerAngles = new Vector3(0, 0, maxRotationAngle);
+        }
 
-        hammerCurrentRotation.eulerAngles = new Vector3(0, 0, maxRotationAngle * hammerInput);
-        //lerp so that it doesn't just slam down
-        
+        //lerp so that it doesn't just snap down
         transform.localEulerAngles = Vector3.Lerp(transform.localEulerAngles, hammerCurrentRotation.eulerAngles, hammerLerpSpeed * Time.fixedDeltaTime);
         //Debug.Log("LEA: " + transform.localEulerAngles);
         //transform.localEulerAngles = hammerCurrentRotation.eulerAngles;

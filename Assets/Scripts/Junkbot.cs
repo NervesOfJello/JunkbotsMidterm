@@ -5,23 +5,31 @@ using UnityEngine;
 public class Junkbot : MonoBehaviour 
 {
     [SerializeField]
-    private float MoveForce = 100;
+    private float moveForce = 100;
     [SerializeField]
-    private float TurnSpeed = 100;
+    private float murnSpeed = 100;
     new Rigidbody rigidbody;
-    float XInput;
-    float YInput;
+    private float xInput;
+    private float yInput;
+
+    //very important boolean
+    //Since it's a binary value, it really doesn't need a modified setter and it needs to be accessible outside of the script
+    //So making it public is probably okay? Maybe ask D.A. later. Definitely don't want it exposed to the editor
+    //[HideInInspector]
+    public bool isAlive = true;
 
     //input variables/axes
     //TODO Manage input axes in code as variables of the player number so they aren't hard-coded into the Junkbot Script
+    //As in axes based on player order in a manager-generated list. Will become more relevant as the gamemanager script is made
     [SerializeField]
     public string PlayerNumber;
 
-    private string HorizontalInputAxis
+    private string horizontalInputAxis
     {
         get { return "Horizontal" + PlayerNumber; }
     }
-    private string VerticalInputAxis
+
+    private string verticalInputAxis
     {
         get { return "Vertical" + PlayerNumber; }
     }
@@ -40,20 +48,24 @@ public class Junkbot : MonoBehaviour
     //handle physics calculations
     private void FixedUpdate()
     {
-        Turn();
-        Move();
+        //TODO Handle the state "isAlive" more elegantly than this. This version only for testing
+        if (isAlive)
+        {
+            Turn();
+            Move();
+        }
     }
     private void GetInput()
     {
-        XInput = Input.GetAxis(HorizontalInputAxis);
-        YInput = Input.GetAxis(VerticalInputAxis);
+        xInput = Input.GetAxis(horizontalInputAxis);
+        yInput = Input.GetAxis(verticalInputAxis);
     }
     private void Move()
     {
-        rigidbody.AddRelativeForce(new Vector3(0, 0, YInput * MoveForce * Time.fixedDeltaTime));
+        rigidbody.AddRelativeForce(new Vector3(0, 0, yInput * moveForce * Time.fixedDeltaTime));
     }
     private void Turn()
     {
-        transform.Rotate(new Vector3(0, XInput * TurnSpeed * Time.fixedDeltaTime,0));
+        transform.Rotate(new Vector3(0, xInput * murnSpeed * Time.fixedDeltaTime,0));
     }
 }
