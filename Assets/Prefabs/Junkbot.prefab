@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 33064731641904288}
   - component: {fileID: 114241792025169380}
   - component: {fileID: 64042257336524002}
+  - component: {fileID: 114381786805581314}
   m_Layer: 0
   m_Name: ToasterCannon
   m_TagString: Untagged
@@ -136,13 +137,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1145605867865402}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.181, y: 0.662, z: -0.165}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.181, y: 0.972, z: -0.165}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4773282676214030}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &4071118051438596
 Transform:
   m_ObjectHideFlags: 1
@@ -193,7 +194,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1059174666487222}
   m_LocalRotation: {x: 0.12278779, y: -0.12278779, z: 0.6963643, w: 0.6963643}
-  m_LocalPosition: {x: 0, y: 0.6, z: -0.3}
+  m_LocalPosition: {x: 0.102, y: 0.6, z: -0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4006501952328564}
@@ -295,7 +296,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 55296d1b6ee54e14e8eb4648d4b448ee, type: 2}
+  - {fileID: 2100000, guid: 59b0e45a9b728ad4fbd83b8bfdaf0a0a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -536,7 +537,7 @@ MonoBehaviour:
       localPivot: {x: 0, y: 0.00000014901161}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: 55296d1b6ee54e14e8eb4648d4b448ee, type: 2}
+    _mat: {fileID: 2100000, guid: 59b0e45a9b728ad4fbd83b8bfdaf0a0a, type: 2}
     manualUV: 0
     elementGroup: -1
     textureGroup: -1
@@ -565,7 +566,7 @@ MonoBehaviour:
       localPivot: {x: -0.0000003874302, y: 0.00000014901161}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: 55296d1b6ee54e14e8eb4648d4b448ee, type: 2}
+    _mat: {fileID: 2100000, guid: 59b0e45a9b728ad4fbd83b8bfdaf0a0a, type: 2}
     manualUV: 0
     elementGroup: -1
     textureGroup: -1
@@ -594,7 +595,7 @@ MonoBehaviour:
       localPivot: {x: 0, y: 0.00000014901161}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: 55296d1b6ee54e14e8eb4648d4b448ee, type: 2}
+    _mat: {fileID: 2100000, guid: 59b0e45a9b728ad4fbd83b8bfdaf0a0a, type: 2}
     manualUV: 0
     elementGroup: -1
     textureGroup: -1
@@ -623,7 +624,7 @@ MonoBehaviour:
       localPivot: {x: 0.0000003874302, y: 0.00000014901161}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: 55296d1b6ee54e14e8eb4648d4b448ee, type: 2}
+    _mat: {fileID: 2100000, guid: 59b0e45a9b728ad4fbd83b8bfdaf0a0a, type: 2}
     manualUV: 0
     elementGroup: -1
     textureGroup: -1
@@ -652,7 +653,7 @@ MonoBehaviour:
       localPivot: {x: 0, y: -0.0000003874302}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: 55296d1b6ee54e14e8eb4648d4b448ee, type: 2}
+    _mat: {fileID: 2100000, guid: 59b0e45a9b728ad4fbd83b8bfdaf0a0a, type: 2}
     manualUV: 0
     elementGroup: -1
     textureGroup: -1
@@ -681,7 +682,7 @@ MonoBehaviour:
       localPivot: {x: 0, y: -0.0000003874302}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: 55296d1b6ee54e14e8eb4648d4b448ee, type: 2}
+    _mat: {fileID: 2100000, guid: 59b0e45a9b728ad4fbd83b8bfdaf0a0a, type: 2}
     manualUV: 0
     elementGroup: -1
     textureGroup: -1
@@ -2894,6 +2895,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityType: 4
+--- !u!114 &114381786805581314
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1059174666487222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce2425f0ad420154f9be34af6aacb48f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  launchForce: 25
+  maxShots: 5
+  fireTransform: {fileID: 4006501952328564}
+  projectile: {fileID: 54430852460364328, guid: a0d14b78ba357534e8b11725a2b1010d,
+    type: 2}
+  cannonCooldownSeconds: 0
 --- !u!114 &114392783070262776
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -23,12 +23,4 @@ public class WeakPoint : MonoBehaviour {
             parentJunkbot.isAlive = false;
         }
     }
-
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.tag == "Weapon")
-    //    {
-    //        parentJunkbot.isAlive = false;
-    //    }
-    //}
 }
