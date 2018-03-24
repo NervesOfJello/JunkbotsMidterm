@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Weapon
+  - Groundcheck
   layers:
   - Default
   - TransparentFX

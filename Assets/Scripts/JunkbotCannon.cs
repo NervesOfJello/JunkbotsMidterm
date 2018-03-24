@@ -47,7 +47,7 @@ public class JunkbotCannon : MonoBehaviour {
     {
         //start cooldown so you can't just chain shots together, also increment shots fired
         canFire = false;
-        //shotsFired++;
+        shotsFired++;
         StartCoroutine(CannonCooldownCoroutine());
 
         //create the projectile and give it a velocity

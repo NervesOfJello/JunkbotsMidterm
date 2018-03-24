@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,15 +8,19 @@ public class Junkbot : MonoBehaviour
     [SerializeField]
     private float moveForce = 100;
     [SerializeField]
-    private float murnSpeed = 100;
+    private float turnSpeed = 100;
     new Rigidbody rigidbody;
     private float xInput;
     private float yInput;
 
+    //variables for groundcheck
+    //isOnGround is changed in the groundcheck script
+    public bool isOnGround = true;
+
     //very important boolean
     //Since it's a binary value, it really doesn't need a modified setter and it needs to be accessible outside of the script
     //So making it public is probably okay? Maybe ask D.A. later. Definitely don't want it exposed to the editor
-    //[HideInInspector]
+    [HideInInspector]
     public bool isAlive = true;
 
     //input variables/axes
@@ -45,6 +50,7 @@ public class Junkbot : MonoBehaviour
 	{
         GetInput();
 	}
+
     //handle physics calculations
     private void FixedUpdate()
     {
@@ -60,12 +66,17 @@ public class Junkbot : MonoBehaviour
         xInput = Input.GetAxis(horizontalInputAxis);
         yInput = Input.GetAxis(verticalInputAxis);
     }
+    //moves the junkbot forward as long as it's on the ground
     private void Move()
     {
-        rigidbody.AddRelativeForce(new Vector3(0, 0, yInput * moveForce * Time.fixedDeltaTime));
+        if (isOnGround)
+        {
+            rigidbody.AddRelativeForce(new Vector3(0, 0, yInput * moveForce * Time.fixedDeltaTime));
+        }
     }
+    //turns the junkbot
     private void Turn()
     {
-        transform.Rotate(new Vector3(0, xInput * murnSpeed * Time.fixedDeltaTime,0));
+        transform.Rotate(new Vector3(0, xInput * turnSpeed * Time.fixedDeltaTime,0));
     }
 }
