@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //Code for this script makes use of heavy reference from the Unity Tanks Tutorial, Found below:
 // https://unity3d.com/learn/tutorials/s/tanks-tutorial
@@ -33,7 +34,6 @@ public class BotManager
     {
         //set the reference
         junkbot = Instance.GetComponent<Junkbot>();
-
         ColoredPlayerText = "<color=#" + ColorUtility.ToHtmlStringRGB(PlayerColor) + ">PLAYER " + PlayerNumber + "</color>";
 
         junkbot.PlayerNumber = PlayerNumber;

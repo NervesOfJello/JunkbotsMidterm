@@ -184,7 +184,7 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < bots.Length; i++)
         { 
-            message += bots[i].ColoredPlayerText + ": " + bots[i].Wins + " Points\n";
+            message += bots[i].ColoredPlayerText + ": " + bots[i].Wins + "/" + roundsToWin + " Points\n";
         }
 
         if (gameWinner != null)

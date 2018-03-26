@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Junkbot : MonoBehaviour 
 {
@@ -11,6 +12,7 @@ public class Junkbot : MonoBehaviour
     private float turnSpeed = 100;
     new Rigidbody rigidbody;
     private JunkbotCannon childJunkbotCannon;
+    private Text labelText;
     private float xInput;
     private float yInput;
 
@@ -48,13 +50,16 @@ public class Junkbot : MonoBehaviour
 	{
         rigidbody = GetComponent<Rigidbody>();
         childJunkbotCannon = GetComponentInChildren<JunkbotCannon>();
+        labelText = GetComponentInChildren<Text>();
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
         GetInput();
+        UpdateLabel();
 	}
+
 
     //handle physics calculations
     private void FixedUpdate()
@@ -87,5 +92,24 @@ public class Junkbot : MonoBehaviour
     public void ResetShots()
     {
         childJunkbotCannon.ResetShots();
+    }
+
+    //I understand that this is obtuse and inefficient, but the BotManager script wouldn't allow me to set this during Setup()
+    //Make sure to update this if you get the chance
+    private void UpdateLabel()
+    {
+        switch (PlayerNumber)
+        {
+            case 1:
+                labelText.color = Color.blue;
+                break;
+            case 2:
+                labelText.color = Color.red;
+                break;
+            default:
+                labelText.color = Color.black;
+                break;
+        }
+        labelText.text = Convert.ToString(PlayerNumber);
     }
 }

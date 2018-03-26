@@ -1,0 +1,27 @@
+Hammer model and textures: http://u3d.as/wcj
+
+Car model and textures: http://u3d.as/9p3
+
+Toast model and texture: http://u3d.as/Mh3
+
+Toaster Model and texture: http://u3d.as/H1G
+
+Floor/Concrete Textures: https://bit.ly/2G4Flcb
+
+Level Decoration: http://u3d.as/7V9
+
+Script referencing and particle effects thanks to the Unity Tanks Tutorial: https://goo.gl/kgkn9q
+
+Fonts courtesy of dafont.com
+PixelPlay (Body Font): https://www.dafont.com/pixelplay.font
+
+
+Sound effects courtesy of freesound.org
+Motor Sound (edited): https://freesound.org/people/MrAuralization/
+Short Circuit (edited): https://freesound.org/people/tedthetrumpet/
+Toast Impact (edited): https://freesound.org/people/Tritus/
+Hammer Impact: https://freesound.org/people/debsound/
+Hammer Whoosh (edited): https://freesound.org/people/SypherZent/
+
+Menu Music: https://bit.ly/2I66N5x
+Level Music: https://bit.ly/2GcXfFl

@@ -12,6 +12,14 @@ public class Hammer : MonoBehaviour {
     private Junkbot parentJunkbot;
     private Quaternion hammerCurrentRotation;
 
+    //audio variabls
+    private AudioSource audioSource;
+    private bool canWhoosh = true;
+    [SerializeField]
+    private float upperEffectThreshold = 0.8f;
+    [SerializeField]
+    private float lowerEffectThreshold = 0.3f;
+
     [SerializeField]
     private float maxRotationAngle;
     [SerializeField]
@@ -21,17 +29,37 @@ public class Hammer : MonoBehaviour {
     {
         parentJunkbot = GetComponentInParent<Junkbot>();
         hammerInputAxis = "Hammer" + parentJunkbot.PlayerNumber;
+        audioSource = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        GetInput();
+        if (parentJunkbot.IsControlEnabled)
+        {
+            GetInput();
+        }
+
+        Whoosh();
 	}
 
     private void FixedUpdate()
     {
         SetHammer();       
+    }
+
+    //play the hammer swing sound when conditions are met
+    public void Whoosh()
+    {
+        if (canWhoosh && hammerInput > upperEffectThreshold)
+        {
+            canWhoosh = false;
+            audioSource.Play();
+        }
+        if (!canWhoosh && hammerInput < lowerEffectThreshold)
+        {
+            canWhoosh = true;
+        }
     }
 
     void GetInput()

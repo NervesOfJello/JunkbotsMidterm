@@ -8,7 +8,7 @@ using UnityEngine;
 public class JunkbotCannon : MonoBehaviour {
 
     private Junkbot parentJunkbot;
-    private AudioSource audio;
+    private AudioSource audioSource;
     private float cannonInput;
     private string cannonInputButton;
     [SerializeField]
@@ -36,7 +36,7 @@ public class JunkbotCannon : MonoBehaviour {
         parentJunkbot = GetComponentInParent<Junkbot>();
         cannonInputButton = "Cannon" + parentJunkbot.PlayerNumber;
 
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -62,7 +62,7 @@ public class JunkbotCannon : MonoBehaviour {
         projectileInstance.velocity = launchForce * fireTransform.forward;
 
         //play the toaster sound effect
-        audio.Play();
+        audioSource.Play();
 
         //TODO: Figure out how to launch the particle effect
         ////Play launch particle cloud (Shell explosion)
