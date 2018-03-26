@@ -6,11 +6,16 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour {
 
     private bool hasSeenCredits = false;
+    [SerializeField]
+    private GameObject soundTrackObject;
 
 	// Use this for initialization
 	void Start () 
 	{
-        DontDestroyOnLoad(gameObject);
+        if (GameObject.Find("Soundtrack(Clone)") == null)
+        {
+            Instantiate(soundTrackObject);
+        }
 	}
 	
     public void ToCredits()
@@ -23,18 +28,15 @@ public class Menu : MonoBehaviour {
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void onClickPlay()
+    public void ToGame()
     {
-        if (hasSeenCredits)
-        {
-            SceneManager.LoadScene("ArenaLevel");
-            Destroy(gameObject, 1);
-        }
-        else
-        {
-            hasSeenCredits = true;
-            SceneManager.LoadScene("Instructions");
-        }
+        Destroy(GameObject.Find("Soundtrack(Clone)"));
+        SceneManager.LoadScene("ArenaLevel");
+    }
+
+    public void ToInstructions()
+    {
+        SceneManager.LoadScene("Instructions");
     }
 
     //quit if it's a build, stop if it's in the editor
