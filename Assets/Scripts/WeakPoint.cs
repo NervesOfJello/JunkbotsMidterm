@@ -10,17 +10,20 @@ public class WeakPoint : MonoBehaviour {
     //This way, this script can be attached to any object
 
     private Junkbot parentJunkbot;
+    private AudioSource audio;
 	// Use this for initialization
 	void Start ()
     {
         parentJunkbot = GetComponentInParent<Junkbot>();
+        audio = GetComponent<AudioSource>();
 	}
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Weapon")
+        if (other.gameObject.tag == "Weapon" && parentJunkbot.IsAlive)
         {
-            parentJunkbot.isAlive = false;
+            parentJunkbot.IsAlive = false;
+            audio.Play();
         }
     }
 }

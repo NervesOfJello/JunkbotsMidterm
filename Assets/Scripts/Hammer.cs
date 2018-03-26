@@ -42,7 +42,7 @@ public class Hammer : MonoBehaviour {
     void SetHammer()
     {
         //if the junkbot dies, let the hammer fall down and stay there
-        if (parentJunkbot.isAlive)
+        if (parentJunkbot.IsAlive)
         {
             //set target rotation relative to the trigger input axis
             hammerCurrentRotation.eulerAngles = new Vector3(0, 0, maxRotationAngle * hammerInput);

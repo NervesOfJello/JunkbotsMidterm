@@ -10,24 +10,28 @@ public class Junkbot : MonoBehaviour
     [SerializeField]
     private float turnSpeed = 100;
     new Rigidbody rigidbody;
+    private JunkbotCannon childJunkbotCannon;
     private float xInput;
     private float yInput;
 
     //variables for groundcheck
-    //isOnGround is changed in the groundcheck script
+    //isOnGround is changed in the groundcheck script, does not need to be shown in inspector
+    [HideInInspector]
     public bool isOnGround = true;
 
     //very important boolean
     //Since it's a binary value, it really doesn't need a modified setter and it needs to be accessible outside of the script
     //So making it public is probably okay? Maybe ask D.A. later. Definitely don't want it exposed to the editor
     [HideInInspector]
-    public bool isAlive = true;
+    public bool IsAlive = true;
+    [HideInInspector]
+    public bool IsControlEnabled;
 
     //input variables/axes
     //TODO Manage input axes in code as variables of the player number so they aren't hard-coded into the Junkbot Script
     //As in axes based on player order in a manager-generated list. Will become more relevant as the gamemanager script is made
     [SerializeField]
-    public string PlayerNumber;
+    public int PlayerNumber;
 
     private string horizontalInputAxis
     {
@@ -43,6 +47,7 @@ public class Junkbot : MonoBehaviour
     void Start () 
 	{
         rigidbody = GetComponent<Rigidbody>();
+        childJunkbotCannon = GetComponentInChildren<JunkbotCannon>();
 	}
 	
 	// Update is called once per frame
@@ -54,8 +59,7 @@ public class Junkbot : MonoBehaviour
     //handle physics calculations
     private void FixedUpdate()
     {
-        //TODO Handle the state "isAlive" more elegantly than this. This version only for testing
-        if (isAlive)
+        if (IsAlive && IsControlEnabled)
         {
             Turn();
             Move();
@@ -78,5 +82,10 @@ public class Junkbot : MonoBehaviour
     private void Turn()
     {
         transform.Rotate(new Vector3(0, xInput * turnSpeed * Time.fixedDeltaTime,0));
+    }
+
+    public void ResetShots()
+    {
+        childJunkbotCannon.ResetShots();
     }
 }

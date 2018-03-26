@@ -7,10 +7,11 @@ public class GroundCheck : MonoBehaviour {
     private Junkbot junkbotParent;
 
 	// Use this for initialization
-	void Start () 
+	void Awake () 
 	{
         junkbotParent = GetComponentInParent<Junkbot>();
 	}
+
     //as long as the collider is in contact with the ground, isOnGround is set to true
     private void OnTriggerStay(Collider collider)
     {
