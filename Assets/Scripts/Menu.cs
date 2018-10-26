@@ -25,13 +25,13 @@ public class Menu : MonoBehaviour {
 
     public void ToMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Menu");
     }
 
     public void ToGame()
     {
         Destroy(GameObject.Find("Soundtrack(Clone)"));
-        SceneManager.LoadScene("ArenaLevel");
+        SceneManager.LoadScene("TwoPlayerArena");
     }
 
     public void ToInstructions()
